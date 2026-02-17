@@ -1,12 +1,14 @@
 'use client'
 
+import { GameType } from '../types'
+
 interface MainMenuProps {
-  onSelectGame: (game: string) => void
+  onSelectGame: (game: GameType) => void
   playerName: string
 }
 
 interface GameOption {
-  key: string
+  key: GameType
   icon: string
   title: string
   description: string

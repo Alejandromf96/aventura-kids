@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
@@ -11,7 +11,7 @@ import ISpyGame from '@/components/games/ISpyGame'
 import TidyUpGame from '@/components/games/TidyUpGame'   // ← NUEVO
 import SuccessModal from '@/components/SuccessModal'
 
-type GameType = 'menu' | 'puzzle' | 'memory' | 'classification' | 'oddOneOut' | 'iSpy' | 'tidyUp'  // ← añadir 'tidyUp'
+import { GameType } from '../types'
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<GameType>('menu')
