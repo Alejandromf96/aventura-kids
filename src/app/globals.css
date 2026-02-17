@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-fredoka: 'Fredoka', sans-serif;
+}
+
+body {
+  font-family: var(--font-fredoka);
+  background-color: #f0f9ff;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  touch-action: manipulation;
+  overflow: hidden;
+}
+
+/* Animaciones personalizadas */
+@keyframes pulse-error {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse-error {
+  animation: pulse-error 0.5s ease-in-out;
+}
+
+/* Efectos de botones */
+.btn-hover:active {
+  transform: scale(0.95);
+}
+
+/* Piezas arrastrables */
+.draggable-item {
+  transition: transform 0.2s;
+  touch-action: none;
+}
+
+.draggable-item:active {
+  transform: scale(1.1);
+}
+
+.draggable-item.dragging {
+  opacity: 0.5;
+}
+
+/* Zonas de soltar */
+.drop-zone {
+  transition: all 0.3s;
+}
+
+.drop-zone.drag-over {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* Cartas de memoria */
+.card-flip {
+  perspective: 1000px;
+}
+
+.card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-flip.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, 
+.card-back {
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Piezas de puzzle */
+.puzzle-piece {
+  transition: all 0.2s;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.puzzle-piece.selected {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+/* Responsive mejoras */
+@media (max-width: 768px) {
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.75rem;
+  }
+  
+  body {
+    overflow-y: auto;
+  }
+}
+
+/* Prevenir zoom en inputs en iOS */
+input,
+select,
+textarea {
+  font-size: 16px !important;
+}
+
+/* Prevenir pull-to-refresh en móviles */
+html, body {
+  overscroll-behavior-y: contain;
+}
